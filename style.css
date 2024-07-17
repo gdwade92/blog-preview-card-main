@@ -1,0 +1,271 @@
+/* Global Reset */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+}
+
+/* Set core body defaults */
+body {
+    line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+    line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+    text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+    color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+    min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+    scroll-margin-block: 5ex;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+/* End Global Reset */
+
+/* Global Font Declarations */
+@font-face {
+    font-family: 'Figtree Base';
+    src: url(assets/fonts/Figtree-VariableFont_wght.ttf) format('truetype');
+    font-weight: 500 800;
+    font-display: fallback;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Figtree Italic';
+    src: url(assets/fonts/Figtree-Italic-VariableFont_wght.ttf) format('truetype');
+    font-weight: 500 800;
+    font-display: fallback;
+    font-style: italic;
+}
+
+/* Root Declarations */
+:root {
+    /* Color */
+    --clr-prm-yellow: hsl(47, 88%, 63%);
+
+    --clr-neut-white: hsl(0, 0%, 100%);
+    --clr-neut-grey: hsl(0, 0%, 50%);
+    --clr-neut-black: (0, 0%, 7%);
+
+    /* Typography */
+    --fs-100: 0.25rem;
+    --fs-200: 0.50rem;
+    --fs-300: 0.75rem;
+    --fs-400: 1rem;
+    --fs-500: 1.25rem;
+    --fs-600: 1.50rem;
+    --fs-700: 1.75rem;
+    --fs-800: 2rem;
+    --fs-900: 2.5rem;
+
+    --fw-reg: 500;
+    --fw-bold: 800;
+
+    --_gap: 1em;
+
+    --ff-main: 'Figtree Base';
+}
+
+/* Layout Styling */
+.author-data {
+   display: flex;
+   align-items: center; 
+   gap: 1rem;
+}
+
+/* General Styling */
+.wrapper {
+    display: grid;
+    place-items: center;
+    min-height: 99dvh;
+}
+
+body {
+    font-family: var(--ff-main);
+    font-size: var(--fs-400);
+    font-weight: var(--fw-reg);
+    color: var(--clr-neut-black);
+    background: var(--clr-prm-yellow);
+}
+
+.blog-container {
+    max-width: 23em;
+    padding: 1.5rem;
+    margin: 0 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0.5rem 0.5rem 0 black;
+    background: var(--clr-neut-white);
+    transition: box-shadow .3s ease;
+    position: relative;
+}
+
+.blog-container a::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}
+
+.blog-container:hover {
+    box-shadow: 1rem 1rem 0 black;
+    cursor: pointer;
+}
+
+.blog-container:hover .blog-title {
+    color: var(--clr-prm-yellow);
+}
+
+
+.blog-container > * + * {
+    margin-top: 1rem;
+}
+
+.author-image {
+   width: 3rem; 
+}
+
+.hero-image {
+    border-radius: inherit;
+}
+
+/* Text Styles */
+
+.blog-category {
+    display: inline-block;
+    font-weight: var(--fw-bold);
+    font-size: clamp(50%, 10vw, 120%);
+    padding: .5em .75em;
+    border-radius: .2rem;
+    background: var(--clr-prm-yellow);
+}
+
+.blog-meta {
+    font-size: 14px;
+}
+
+.blog-title {
+    text-decoration: none;
+    color: var(--clr-neut-black);
+    font-weight: var(--fw-bold);
+    font-size: 1.4rem;
+    transition: color .3s ease;
+}
+
+.card-exerpt {
+    color: var(--clr-neut-grey);
+    font-size: var(--fs-400);
+}
+
+.author-name {
+    font-size: 14px;
+    font-weight: var(--fw-bold);
+
+}
+
+.blog-title:hover {
+    color: var(--clr-prm-yellow);
+    cursor: pointer;
+}
+
+
+
+/* footer */
+
+.footer {
+    min-height: 1dvh;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
